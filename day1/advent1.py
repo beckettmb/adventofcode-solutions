@@ -1,25 +1,17 @@
 #!/usr/bin/python
 
 
+def getsum(seq, length, dist):
+    sum = 0
+    for i in xrange(length):
+        j = (i + dist) % length
+        if seq[i] is seq[j]:
+            sum += int(seq[i])
+    return sum
+
 with open('input.txt', 'r') as f:
     seq = f.readline().rstrip()
-length = len(seq)
+    length = len(seq)
 
-i = 0
-sum = 0
-while i <= length - 1:
-    j = (i + 1) % length
-    if seq[i] is seq[j]:
-        sum += int(seq[i])
-    i += 1
-print sum
-
-i = 0
-sum = 0
-half = length / 2
-while i <= length - 1:
-    j = (i + half) % length
-    if seq[i] is seq[j]:
-        sum += int(seq[i])
-    i += 1
-print sum
+print getsum(seq, length, 1)
+print getsum(seq, length, length / 2)

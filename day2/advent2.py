@@ -2,43 +2,36 @@
 
 
 with open('input.txt', 'r') as f:
-    input = f.read()
-lines = input.splitlines()
+    lines = f.read().splitlines()
 
 checksum = 0
 for line in lines:
     items = line.split('\t')
-    i = 0
-    max = items[i]
-    min = items[i]
-    i += 1
-    while i < len(items):
-        if int(items[i]) > int(max):
-            max = items[i]
-        if int(items[i]) < int(min):
-            min = items[i]
-        i += 1
+    max = items[0]
+    min = items[0]
+    for item in items:
+        if int(item) > int(max):
+            max = item
+        elif int(item) < int(min):
+            min = item
     checksum += int(max) - int(min)
 print checksum
 
 checksum = 0
 for line in lines:
     items = line.split('\t')
-    i = 0
-    while i < len(items):
-        j = 0
-        while j < len(items):
-            if i == j:
-                j += 1
+    for i in enumerate(items):
+        for j in enumerate(items):
+            if i[0] == j[0]:
                 continue
-            if int(items[i]) > int(items[j]):
-                if not int(items[i]) % int(items[j]):
-                    checksum += (int(items[i]) % int(items[j]))
+            item1 = int(i[1])
+            item2 = int(j[1])
+            if item1 > item2:
+                if not item1 % item2:
+                    checksum += item1 % item2
                     break
-            if int(items[j]) > int(items[i]):
-                if not int(items[j]) % int(items[i]):
-                    checksum += (int(items[j]) / int(items[i]))
+            if item2 > item1:
+                if not item2 % item1:
+                    checksum += item2 / item1
                     break
-            j += 1
-        i += 1
 print checksum
