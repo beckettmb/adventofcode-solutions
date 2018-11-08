@@ -1,7 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
 
-with open('input.txt', 'r') as f:
+with open('../input.txt', 'r') as f:
     lines = f.read().splitlines()
 
 checksum = 0

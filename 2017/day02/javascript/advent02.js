@@ -2,7 +2,7 @@
 
 
 var fs = require('fs');
-var lines = fs.readFileSync('input.txt', 'utf8').match(/[^\r\n]+/g);
+var lines = fs.readFileSync('../input.txt', 'utf8').match(/[^\r\n]+/g);
 
 var checksum = 0;
 for(var i = 0; i < lines.length; i++)

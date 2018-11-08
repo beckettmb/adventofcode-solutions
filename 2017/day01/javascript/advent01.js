@@ -14,7 +14,7 @@ function getsum(seq, length, dist)
 }
 
 var fs = require('fs');
-var seq = fs.readFileSync("input.txt", 'utf8').replace(/\s*$/, '');
+var seq = fs.readFileSync("../input.txt", 'utf8').replace(/\s*$/, '');
 var length = seq.length;
 
 console.log(getsum(seq, length, 1));

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
 
 def getsum(seq, length, dist):
@@ -9,7 +9,7 @@ def getsum(seq, length, dist):
             sum += int(seq[i])
     return sum
 
-with open('input.txt', 'r') as f:
+with open('../input.txt', 'r') as f:
     seq = f.readline().rstrip()
     length = len(seq)
 

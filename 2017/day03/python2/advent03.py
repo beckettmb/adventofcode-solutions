@@ -1,9 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
 
 from math import sqrt
 
-with open('input.txt', 'r') as f:
+with open('../input.txt', 'r') as f:
     input = float(f.readline())
 
 i = 1
