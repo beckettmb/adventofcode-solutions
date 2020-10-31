@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/pypy3
 
 
 from itertools import cycle
@@ -46,7 +46,7 @@ def do_round(ring, lengths, curr_pos, skips, mode):
 
 def get_sparse_hash(lengths, mode):
     sparse_hash = []
-    for i in xrange(256):
+    for i in range(256):
         sparse_hash.append(i)
 
     if mode == 1:
@@ -55,13 +55,13 @@ def get_sparse_hash(lengths, mode):
     elif mode == 2:
         curr_pos = 0
         skips = 0
-        for i in xrange(64):
+        for i in range(64):
             sparse_hash, curr_pos, skips = do_round(sparse_hash, lengths, curr_pos, skips, 2)
         return sparse_hash
 
 def get_dense_hash(sparse_hash):
     dense_hash = ''
-    sparse_hash = [sparse_hash[i:i + 16] for i in xrange(0, len(sparse_hash), 16)]
+    sparse_hash = [sparse_hash[i:i + 16] for i in range(0, len(sparse_hash), 16)]
     for i in sparse_hash:
         k = None
         for j in i:
@@ -74,8 +74,8 @@ def get_dense_hash(sparse_hash):
 
 lengths = get_lengths('../input.txt', 1)
 sparse_hash = get_sparse_hash(lengths, 1)
-print sparse_hash[0] * sparse_hash[1]
+print(sparse_hash[0] * sparse_hash[1])
 
 lengths = get_lengths('../input.txt', 2)
 sparse_hash = get_sparse_hash(lengths, 2)
-print get_dense_hash(sparse_hash)
+print(get_dense_hash(sparse_hash))

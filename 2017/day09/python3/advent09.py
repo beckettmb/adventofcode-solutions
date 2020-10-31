@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/pypy3
 
 
 with open('../input.txt', 'r') as f:
@@ -40,5 +40,5 @@ with open('../input.txt', 'r') as f:
                 score += c
                 c -= 1
 
-        print score
-        print garbage
+        print(score)
+        print(garbage)
